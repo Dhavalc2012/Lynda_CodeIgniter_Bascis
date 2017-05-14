@@ -17,8 +17,8 @@
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <!-- Foundation 6 -->
-    <link href="/foundation/css/foundation.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/foundation/js/foundation.js"></script>
+    <link href="foundation/css/foundation.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="foundation/js/foundation.js"></script>
 
 
     <title>CodeIgniter Base App</title>
