@@ -21,5 +21,9 @@
             $result_set = $this->db->query('SELECT VERSION()');
             return $result_set;
         }
+        public function all(){
+            $result_set = $this->db->get('properties');
+            return $result_set->result_array();
+        }
     }
     
