@@ -18,6 +18,8 @@ class Properties extends CI_Controller
 	   $data["id"] = $id;
 	 //  $this->load->model('Property');
 	   $data["name"] =  $this->Property->get();
+	   $version = $this->Property->get_version();
+	   $data['version'] = $version->conn_id->server_info;
 	   $this->load->view('properties/show', $data);
    }
    public function db_test(){
