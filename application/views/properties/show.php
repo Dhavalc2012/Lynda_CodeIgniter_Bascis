@@ -1,1 +1,1 @@
-<h3>Record <?php echo $id; ?> </h3>
+<h3>Record <?php echo $id;  echo $name;?> </h3>

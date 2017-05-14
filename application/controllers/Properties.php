@@ -5,6 +5,8 @@ class Properties extends CI_Controller
 {
    public function index()
    {
+	//Commenting this because we have autoload helper 
+	//$this->load->helper('url');
    	$data['user_name'] = 'Dhaval';
    	$data['status_group'] = ['All', 'Available', 'Unavailable'];
    	$this->load->view('layouts/header');
@@ -14,6 +16,12 @@ class Properties extends CI_Controller
    }
    public function show($id){
 	   $data["id"] = $id;
+	   $this->load->model('Property');
+	   $data["name"] =  $this->Property->get();
 	   $this->load->view('properties/show', $data);
+   }
+   public function db_test(){
+	   $this->load->model('Property');
+	   $this->Property->connection_test();
    }
 }
