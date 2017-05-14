@@ -16,12 +16,12 @@ class Properties extends CI_Controller
    }
    public function show($id){
 	   $data["id"] = $id;
-	   $this->load->model('Property');
+	 //  $this->load->model('Property');
 	   $data["name"] =  $this->Property->get();
 	   $this->load->view('properties/show', $data);
    }
    public function db_test(){
-	   $this->load->model('Property');
+	  // $this->load->model('Property');
 	   $this->Property->connection_test();
    }
 }
