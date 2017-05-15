@@ -1,11 +1,18 @@
 <div>
   <div class="row column text-center">
     <h2>Welcome, <?php echo $user_name; ?></h2>
-    <select>
+    <?php if(empty($selected_filter)) { ?>
+    <form method="get" action="<?php echo site_url('properties/set_filter'); ?>">
+    <select name="filter">
         <?php foreach($status_group as $status){ ?>
           <option><?php echo $status; ?></option>
           <?php } ?>
     </select>
+    <input type="submit" value="Select" class="button warning">
+    </form>
+    <?php } else { ?>
+      <h4> Showing Filter For :  <?php echo $selected_filter; ?> </h4>
+    <?php } ?> 
   </div>
 </div>
 <hr>
