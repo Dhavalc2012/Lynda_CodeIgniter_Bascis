@@ -29,8 +29,8 @@
       <td><?php echo $property["city"]; ?>, <?php echo $property["state"]; ?> </td>
       <td>Available</td>
       <td>
-        <a href="<?php echo site_url('properties/show/1'.$property['id']); ?>" class="button success">View Details</a>
-        <a href="<?php echo site_url('properties/edit/1'.$property['id']); ?>" class="button ">Edit Details</a>
+        <a href="<?php echo site_url('properties/show/'.$property['id']); ?>" class="button success">View Details</a>
+        <a href="<?php echo site_url('properties/edit/'.$property['id']); ?>" class="button ">Edit Details</a>
       </td>  
     </tr>
    <?php  } ?>
