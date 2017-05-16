@@ -24,7 +24,7 @@
       <td>IMAGE</td>
       <td>NAME</td>
       <td>LOCATION</td>
-      <td>STATUS</td>  
+      <td>STATUS</td> 
       <td>ACTION</td>  
     </tr>
     <?php foreach ($properties as $property) {

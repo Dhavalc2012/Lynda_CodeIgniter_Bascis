@@ -3,6 +3,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Properties extends CI_Controller
 {
+  
+  public function view_image()
+  {
+      $image = file_get_contents('assets/images/ThinkstockPhotos-145054512.jpg');
+      $this->output->set_content_type('jpge')->set_output($image);
+  }
+
    public function index()
    {
       
@@ -16,6 +23,13 @@ class Properties extends CI_Controller
    	$this->load->view('layouts/footer');
    }
 
+    public function kml_export()
+    {
+        $this->output->set_content_type('application/xml');
+        //$this->output->set_content_type('application/octet-stream');
+        //header('Content-Disposition:inline; filename="real_estate_export.kml"');
+        $this->load->view('properties/kml_export');
+    }
     public function set_filter(){
         $session_data['selected_filter'] = $this->input->get('filter');
         $this->session->set_userdata($session_data);
