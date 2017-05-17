@@ -55,6 +55,11 @@ class Properties extends CI_Controller
 
    public function edit($id)
    {
+       $image = FALSE;
+       $this->load->helper('form');
+       if($_FILES){
+        $image =   $this->do_upload();
+       }
 
       if($_POST)
       {
@@ -63,7 +68,9 @@ class Properties extends CI_Controller
          $description = $this->input->post('description');
          $new_data['name'] = $name;
          $new_data['description'] = $description;
-
+         if ($image){
+             $new_data['image'] = $image; 
+         }
          $this->Property->update($id, $new_data);
          redirect('properties/index');
       }
@@ -73,6 +80,17 @@ class Properties extends CI_Controller
       $this->load->view('layouts/foundation_nav');
       $this->load->view('properties/edit', $data);
       $this->load->view('layouts/footer');
+   }
+
+   public function do_upload()
+   {
+      $config['upload_path'] ='./assets/images/';
+      $config['allowed_types'] = 'gif|jpg|png';
+      $this->load->library('upload',$config);
+      $this->upload->do_upload('image_file');
+      $data = $this->upload->data();
+      return $data['file_name'];
+
    }
 
 }
