@@ -12,7 +12,7 @@ class Properties extends CI_Controller
 
    public function index()
    {
-      
+    log_message('debug','My First Debug Message');  
    	$data['user_name'] = 'Bernard';
    	$data['status_group'] = ['All', 'Available', 'Unavailable'];
     $data['properties'] = $this->Property->all();
@@ -55,6 +55,7 @@ class Properties extends CI_Controller
 
    public function edit($id)
    {
+    log_message('debug','Form parameters' .print_r($_POST, TRUE));  
        $image = FALSE;
        $this->load->helper('form');
        $this->load->library('form_validation');
