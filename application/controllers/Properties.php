@@ -57,6 +57,9 @@ class Properties extends CI_Controller
    {
        $image = FALSE;
        $this->load->helper('form');
+       $this->load->library('form_validation');
+       $this->form_validation->set_rules('name','Name','required');
+       $this->form_validation->set_rules('description','Description','required');
        if($_FILES){
         $image =   $this->do_upload();
        }
@@ -71,8 +74,23 @@ class Properties extends CI_Controller
          if ($image){
              $new_data['image'] = $image; 
          }
-         $this->Property->update($id, $new_data);
-         redirect('properties/index');
+
+         if($this->form_validation->run()){
+             $this->Property->update($id, $new_data);
+             redirect('properties/index');
+
+         }
+         else {
+            $data['property']['name'] = $this->input->post('name');
+            $data['property']['description'] = $this->input->post('description');
+            $this->load->view('layouts/header');
+            $this->load->view('layouts/foundation_nav');
+            $this->load->view('properties/edit', $data);
+            $this->load->view('layouts/footer');
+             return;
+         }
+         //$this->Property->update($id, $new_data);
+         
       }
 
       $data['property'] = $this->Property->get($id);
